@@ -1,0 +1,28 @@
+			
+				<div class="item" >
+					<!-- 日期分类 -->
+					<div class="mark" ng-hide="!hide">{{date|date:"yyyy-MM-dd"}}</div>
+					<ul class="posts large">
+						<!-- 文章 -->
+						<li ng-repeat="(index,item) in posts">
+							<span href="javascript:;" class="tag" ng-if="item.column.name">{{item.column.name}}</span>
+							<div class="cont">
+								<h3>{{item.title}}</h3>
+								<!-- 只有文字情况 -->
+								<div class="brief">
+									<p ng-class="{only:item.display_style==10001}" ng-if="item.display_style!==10003">{{item.abstract}}</p>
+									<!-- 图片文字环绕情况 -->
+									<div class="thumb" ng-if="item.display_style==10002">
+										<img ng-src="{{item.thumbs[0].small.url}}" alt="">
+									</div>	
+									<!-- 只有图片情况-->
+									<div class="gallery" ng-if="item.display_style==10003">
+										<img ng-src="{{item.thumbs[0].small.url}}" alt="">
+									</div>
+								</div>	
+							</div>
+						</li>
+					
+					</ul>
+				</div>
+			

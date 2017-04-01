@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 由于服务安全问题使用meta取消Referer头文件 -->
+	<meta name="referrer" content="never">
+	<title>豆瓣一刻</title>
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./less/main.css">
+	<script src="libs/angular.min.js"></script>
+	<script src="libs/angular-route.min.js"></script>
+	<script src="script/index.js"></script>
+</head>
+<body>
+	<div class="viewport" ng-app="yike">
+		<!-- 侧边导航 -->
+		<div ng-class="{navs:true,collapse:falge}" ng-controller="yikeController">
+			<dl>
+				<dt class="login">
+					<div class="avatar">
+						<img src="./images/avatar.png" alt="">
+					</div>
+					<span>登录</span>
+				</dt>
+				<dd class="active" ng-repeat="(index,data) in list" ng-click="change(index)">
+					<a href="{{data.link}}" class="{{data.inoc}}" >
+						<span>{{data.text}}</span>
+					</a>
+				</dd>
+				
+				
+			</dl>
+			<div class="extra">
+				<a href="javascript:;" class="icon-image">夜晚</a>
+				<a href="javascript:;" class="icon-download">离线</a>
+			</div>
+		</div>
+		<div class="container">
+			<!-- 头部 -->
+			<div class="header" ng-class="{collapse:falge}">
+				<a href="javascript:;" class="menu icon-menu" ng-click="change()"></a>
+				<h2>{{text}}</h2>
+				<a href="javascript:;" class="search icon-search"></a>
+			</div>
+			<!-- 主体 -->
+			<div class="body" ng-class="{collapse:falge}"  >
+					<img src="images/jiazai.gif" ng-hide="hide" style="width:100px; margin:0 auto" alt="">
+					<div ng-view>
+						
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- <script src="./libs/toggle.js"></script> -->
+</body>
+</html>
